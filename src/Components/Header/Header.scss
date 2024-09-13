@@ -14,6 +14,22 @@
     &__logo {
         width: 4rem;
         height: 3.28rem;
+        transform: translateY(50vh) scale(1.5);
+        animation: move-logo 2s ease-in-out forwards;
     }
+    &__user {
+        opacity: 0;
+        animation: appear-user forwards;
+        animation-delay: 1.75s;
+    }
+}
 
+@keyframes move-logo {
+    to {
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes appear-user {
+    100% {opacity: 1;}
 }

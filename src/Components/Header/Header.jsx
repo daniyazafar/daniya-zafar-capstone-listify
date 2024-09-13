@@ -11,7 +11,7 @@ function Header() {
         <div className="header">
             <div className="empty"></div>
             <img className='header__logo' src={logo} alt="Listify Logo" />
-            <img src={userIcon} alt="user account icon" />
+            <img className='header__user' src={userIcon} alt="user account icon" />
         </div>
         </>
     )
