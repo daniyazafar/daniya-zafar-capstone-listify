@@ -1,14 +1,14 @@
-import { ReactSVG } from "react-svg";
-import logo from './assets/icons/logo.svg';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Header from "./Components/Header/Header";
 
 import './App.scss';
 
 function App() {
   return (
     <>
-    <div className="header">
-      <ReactSVG className='header__logo' src={logo} />
-    </div>
+
+    <Header />
 
     </>
   );
