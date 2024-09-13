@@ -1,0 +1,26 @@
+@import './styles/partials/colors';
+@import './styles/partials/fonts';
+@import './styles/partials/media';
+@import './styles/partials/variables';
+@import './styles/partials/mixins';
+
+/* Center the entire content of the page */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $paper-color;
+  @include flex-center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.header {
+  @include flex-center;
+  background-color: $paper-color;
+  padding: 0.5rem;
+}
+
+.header__logo {
+  width: 20vw; /* Adjust size as needed */
+  height: auto; /* Keeps the logo's aspect ratio */
+}

@@ -1,0 +1,10 @@
+@use './colors';
+@use './fonts';
+@use './media';
+@use './variables';
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

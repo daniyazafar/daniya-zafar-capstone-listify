@@ -1,48 +1,45 @@
-# Project Title
+# Project Title: Listify
 
 ## Overview
 
-Listify is a one place for all your lists! It allows users to create, organize, and share multiple lists for various tasks, events, and everyday needs. Whether you are going grocery shopping, planning a party, managing household chores, or keeping track of personal tasks, Listify simplifies collaboration and helps keep everyone on the same page. 
+Listify is a versatile list management app designed to be your all-in-one tool for organizing tasks, events, and daily routines. It allows users to create, organize, and share multiple lists for various needs, whether personal or collaborative. From managing everyday tasks to planning events or keeping track of personal routines, Listify simplifies organization and enhances productivity by bringing all your lists into one accessible platform.
 
 ### Problem Space
 
-In today's busy world, managing tasks, coordinating events, and staying organized can be overwhelming. With so much going on, it’s easy to forget about personal well-being amidst the daily hustle. Many existing apps focus on specific list types, like groceries or to-do lists, without offering a holistic approach that supports both group coordination and personal care.
+Staying organized and managing multiple responsibilities can be overwhelming, especially when juggling personal tasks, group activities, and daily routines. Existing list apps often focus on single use cases, like basic to-do lists, and lack features that support group collaboration or personalized self-care routines. Users need a tool that can manage not only shared responsibilities but also support personal goals and habits.
 
-With Listify, not only can you streamline group tasks and event planning, but you can also prioritize yourself. The app allows you to design your own morning and bedtime routines, helping you stay on track with your self-care goals. Completing your routines earns you gold, silver, and bronze stars as rewards, adding a fun, motivational element. Plus, personalized reminders ensure you don’t forget to take time for yourself, helping you maintain a balanced lifestyle.
-
-This comprehensive approach makes Listify more than just a list app—it’s a tool for managing life’s responsibilities while supporting your personal well-being.
+Listify addresses this gap by offering a comprehensive solution that integrates both shared and personal list management. Users can create and collaborate on lists for group tasks, such as planning events or managing shared chores, while also maintaining personal routines like morning and bedtime checklists. Listify’s customizable features and motivational elements, such as personalized reminders and achievement rewards, ensure that users stay on track and motivated, making it more than just a list app—it’s a tool for life management.
 
 ### User Profile
 
 ## Target Audience: Who Will Use Listify?
 
-Listify is designed for anyone looking to streamline their day-to-day tasks and enhance their personal and group organization. Key users include:
+Listify is designed for anyone seeking to streamline their day-to-day tasks and enhance both personal and group organization. Key users include:
 
-- Busy Families: Parents and family members who need a central hub for managing household chores, grocery shopping, meal planning, and shared responsibilities.
-- Event Planners and Social Organizers: Individuals or groups planning parties, gatherings, or other events, who need a collaborative space to track contributions and tasks.
-- Individuals Focused on Self-Care: Users who want to prioritize their personal routines, such as morning and bedtime rituals, and stay on track with their self-care goals.
-- Professionals and Students: Those needing to manage multiple lists for work, study, or personal projects in an organized and accessible way.
+- **Families and Households**: Members who need a central hub for managing household chores, shared responsibilities, and family activities.
+- **Event Planners and Social Organizers**: Individuals or groups who need a collaborative space to track contributions, plan events, and coordinate tasks.
+- **Individuals Focused on Self-Care and Personal Routines**: Users looking to manage their daily routines, set personal goals, and track self-care habits in an engaging way.
+- **Professionals and Students**: Those who need to manage multiple lists for work, study, or personal projects, with the flexibility to share and collaborate with others.
 
 ## How They Will Use It:
 
-- Creating and Sharing Lists: Users can create custom lists for any purpose, share them with others, and collaborate in real time to add, edit, or check off items.
-- Routine Management: Individuals can set up personalized morning and bedtime routines, receiving reminders and motivational rewards as they achieve their goals.
-- Event-Specific Coordination: Users planning events can create dedicated lists, such as party prep lists, where guests can see what’s needed and add their contributions.
+- **Creating and Sharing Lists**: Users can create lists for any purpose, keep them private or share them with others, and collaborate in real-time to add, edit, or check off items.
+- **Routine Management**: Users can set up personalized morning and bedtime routines, receive reminders, and track their progress with motivational rewards like stars.
+- **Group Collaboration**: Listify allows users to work together on shared lists for tasks like event planning, group projects, or coordinating household duties.
 
 ## Special Considerations:
 
-- User-Friendly Interface: The app must be intuitive and easy to navigate for users of all tech skill levels, with clear visual cues and straightforward list management.
-- Data Privacy and Security: Given the collaborative nature, it’s crucial that user data is protected, with secure sharing options and privacy controls for personal routines and shared lists.
-- Motivational Elements: The self-care aspect requires gamification elements like star rewards and personalized reminders to keep users engaged and motivated.
-- Cross-Platform Compatibility: Listify should be accessible across devices (mobile, tablet, and desktop), ensuring users can manage their lists anytime, anywhere.
-These considerations help ensure that Listify not only meets the organizational needs of its users but also supports their personal well-being in a fun and meaningful way.
+- **User-Friendly Interface**: The app is designed to be intuitive and easy to navigate, with clear visual cues and straightforward list management features that cater to all tech skill levels.
+- **Data Privacy and Security**: With options for both personal and shared lists, it’s essential that Listify ensures user data is protected, with secure sharing options and privacy controls.
+- **Motivational Elements**: To keep users engaged, Listify includes gamification features like star rewards and personalized reminders to motivate users to achieve their personal goals.
+- **Cross-Platform Compatibility**: Accessible across devices (mobile, tablet, and desktop) to ensure that users can manage their lists anytime, anywhere.
 
 ### Features
 
-- As a user, I want to create and manage multiple unrelated lists so that I can organize tasks, events, and personal items separately.
-- As a user, I want to set up my morning and night routines and track my progress so that I can stay consistent and earn rewards for completing my self-care goals.
-- As a user, I want to create lists with pre-filled items based on the list type so that I can quickly get started with common tasks like grocery shopping or event planning.
-- As a user, I want to create a grocery list that I can share with my family so that we can collaboratively add items and keep track of what’s needed.
+- **Create Multiple Lists**: Users can create and manage various lists for different needs, whether for personal tasks or group projects.
+- **Shared and Personal Lists**: Seamlessly switch between personal and shared lists, allowing users to collaborate on group tasks or maintain privacy for individual lists.
+- **Routine Management**: Set up morning and night routines and track progress, earning rewards for completing personal goals.
+- **Real-Time Collaboration**: Collaborate on shared lists in real-time, with the ability to add, edit, or check off items together.
 
 ## Implementation
 
@@ -68,140 +65,115 @@ These considerations help ensure that Listify not only meets the organizational 
 
 ### APIs
 
-No external APIs at the moment
+- **No external APIs at the moment**
 
 ### Sitemap
 
-- Login page
-- Sign up page
-- Home page - contains all active lists
-- Add new list form
-- Calendar page
+- **Login page**
+- **Sign-up page**
+- **Home page** - contains all active lists
+- **Add new list form**
+- **Calendar page**
 
 ### Mockups
 
-![](mockup.png)
+![Mockup](mockup.png)
 
 ### Endpoints
 
 **GET /lists/**
 
-- Get all active lists for a user
+- Retrieve all active lists for a user.
 
 Response:
-```
+```json
 [
-    "id": 1,
-    "list_name": "Grocery List",
-    "list_active": [
-        {
-            "id": 1,
-            "name": "Grocery List",
-        },
-        {
-            "id": 2,
-            "name": "Sarah's Party List",
-        },
-        {
-            "id": 3,
-            "name": "Morning Routine",
-        },
-        {
-            "id": 4,
-            "name": "Night Routine",
-        },
-        ...
-    ]
+    {
+        "id": 1,
+        "add_new": true,
+        "list_active": [
+            {
+                "id": 1,
+                "name": "Grocery List"
+            },
+            {
+                "id": 2,
+                "name": "Sarah's Party List"
+            },
+            {
+                "id": 3,
+                "name": "Morning Routine"
+            },
+            {
+                "id": 4,
+                "name": "Night Routine"
+            }
+        ]
+    }
 ]
 ```
-
 **GET /lists/:id**
 
-- Get a specific list based on the id. For example, when user clicks "Grocery List" will get grocery list
+- Retrieve a specific list based on the ID. For example, when a user clicks "Grocery List," it will get the grocery list.
 
 Response:
-```
+```json
 [
-    "id": 1,
-    "list_name": "Grocery List",
-    "list_items": [
-        {
-            "id": 1,
-            "name": "Coffee",
-            "category": "Breakfast",
-        },
-        {
-            "id": 2,
-            "name": "Water",
-            "category": "Beverage",
-        },
-        {
-            "id": 3,
-            "name": "Lettuce",
-            "category": "Produce",
-        },
-        ...
-    ]
+    {
+        "id": 1,
+        "list_name": "Grocery List",
+        "list_items": [
+            {
+                "id": 1,
+                "name": "Coffee",
+                "category": "Breakfast"
+            },
+            {
+                "id": 2,
+                "name": "Water",
+                "category": "Beverage"
+            },
+            {
+                "id": 3,
+                "name": "Lettuce",
+                "category": "Produce"
+            }
+        ]
+    }
 ]
 ```
 
-**GET /routineStars/:id**
+**GET /routinestats**
 
-- Get grocery will organize the items based on category
+- Retrieve routine stars based on the user's compelted routines
 
 Response:
-```
+```json
 [
     {
         "id": 1,
         "date": "Sept 21, 2024",
-        "routine": [
+        "routine": {
             "morning": "goldStar.png",
             "night": "silverStar.png"
-        ],
-    },
-    ...
+        }
+    }
 ]
 ```
 
 ## Roadmap
 
-- Create client
-    - react project with routes and boilerplate pages
-
-- Create server
-    - express project with routing
-
-- Create migrations
-
-- Create seeds with sample data
-
-- Deploy client and server projects so all commits will be reflected in production
-
-- Feature: Organize grocery list based on categories
-
-- Feature: View routine stars
-    - Implement view stars from calendar page
-    - Create GET /routineStars/:id 
-
-- Feature: Add new list
-    - Add form input to create a new list
-
-- Feature: Startup page (hard codded for the sprint)"
-    - Sign Up button
-    - Login button
-
-- Feature: Home page:
-    - Shows all active lists
-
-- Feature: Calendar page:
-    - Shows current month with STARS for morning and night routine rewards
-
-- Bug fixes
-
-- DEMO DAY!!!
----
+- **Create client**: Set up React project with initial routes and pages.
+- **Create server**: Set up Express backend with routing.
+- **Create migrations**: Design database schema and migrations.
+- **Create seeds**: Populate database with sample data.
+- **Deploy**: Deploy client and server projects to a live environment.
+- **Feature Development**: Implement features for list creation, collaboration, routine tracking, and more.
+- **Bug fixes**: Regular updates and maintenance.
+- **Demo Day**: Showcase app functionality.
 
 ## Future Implementations
-- Have sign up / Login page function properly with correct authentication
-- APIs to place order directly from Grocery List
+
+- **User Authentication**: Implement sign-up and login functionalities.
+- **Enhanced List Features**: Integrate additional features like task prioritization, notifications, and reminders.
+
