@@ -1,0 +1,18 @@
+@import '../../styles/partials/colors';
+@import '../../styles/partials/fonts';
+@import '../../styles/partials/media';
+@import '../../styles/partials/variables';
+@import '../../styles/partials/mixins';
+
+.add {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    &__click {
+        display: flex;
+        gap: .25rem;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
