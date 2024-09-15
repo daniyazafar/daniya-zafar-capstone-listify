@@ -25,9 +25,11 @@ function AddList() {
             </div>
         </div>
         <AddListModal modal = {showModal} closeModal={closeModal} addNewList={handleAddNewList} />
-        {newList.map((list, index) => (
-            <Link to='/listItem' key={index}><h2>{list}</h2></Link>
-        ))}
+        <div className='added_list'>
+            {newList.map((list, index) => (
+                <Link to='/listItem' key={index}><h2 className='added_list-name'>{list}</h2></Link>
+            ))}
+        </div>
         </>
     )
 }

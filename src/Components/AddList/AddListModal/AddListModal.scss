@@ -1,0 +1,35 @@
+@import '../../../styles/partials/colors';
+@import '../../../styles/partials/fonts';
+@import '../../../styles/partials/media';
+@import '../../../styles/partials/variables';
+@import '../../../styles/partials/mixins';
+
+.modal {
+    background-color: $modal-color;
+    min-width: 20rem;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: $border-radius;
+    @include flex-column(1rem);
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    &__title {
+        text-align: center;
+        padding-bottom: .5rem;
+        border-bottom: 1px solid $primary-text-color;
+    }
+    &__list {
+        @include flex-column(1rem);
+    }
+    &__list-name, &__list-type  {
+        @include modal-form-styling;
+    }
+    &__add-button {
+        background-color: $button-and-hover-color;
+        color: white;
+        font-weight: 600;
+        text-align: center;
+        margin: auto;
+        @include field-button-styling;
+    }
+}

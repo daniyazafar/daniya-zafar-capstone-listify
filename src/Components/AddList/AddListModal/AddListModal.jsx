@@ -12,32 +12,31 @@ function AddListModal({ modal, closeModal, addNewList }) {
         closeModal();
         const new_list_name = list_name.current.value;
         addNewList(new_list_name);
-        console.log(list_name.current.value);
     };
-    
 
         return (
             <>
-            <form action="">
-                <h1>Add New List</h1>
-                <label htmlFor="list_name">Name:</label>
-                <input ref={list_name} type="text" name="list_name" id="list_name" />
-                <label htmlFor="list_type">List Type:</label>
-                <select name="type_options" id="list_type">
-                    <option value="Grocery">Grocery</option>
-                    <option value="Bedtime Routine">Bedtime Routine</option>
-                    <option value="Morning Routine">Morning Routine</option>
-                    <option value="Generic List">Generic List</option>
-                </select>
+            <form action="" className='modal'>
+                <h1 className='modal__title'>Add New List</h1>
+                <div className='modal__list'>
+                    <div className='modal__list-name'>
+                        <label className='modal__list-name--label' htmlFor="list_name">Name:</label>
+                        <input className='modal__list-name--field' ref={list_name} type="text" name="list_name" id="list_name" />
+                    </div>
 
-                <p onClick ={handleAddClick}>Add</p>
+                    <div className='modal__list-type'>
+                        <label className='modal__list-type--label' htmlFor="list_type">List Type:</label>
+                        <select className='modal__list-type--field' name="type_options" id="list_type">
+                            <option value="Grocery">Grocery</option>
+                            <option value="Routine">Routine</option>
+                            <option value="Generic List">Generic List</option>
+                        </select>
+                    </div>
+                </div>
+                <p className='modal__add-button' onClick ={handleAddClick}>Add</p>
             </form>
-                {/* <div>AddListModal</div>
-                <span onClick={closeModal}>x</span> */}
             </>
         )
 }
-
-// export const newList = {list_name.value};
 
 export default AddListModal

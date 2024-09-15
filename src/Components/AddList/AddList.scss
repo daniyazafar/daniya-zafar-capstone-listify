@@ -8,11 +8,36 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    @include appear-animation;
     &__click {
         display: flex;
         gap: .25rem;
         &:hover{
             cursor: pointer;
+            font-size: 1rem;
+        }
+    }
+    &__text {
+        font-weight: 500;
+    }
+}
+
+.added_list {
+    & > * {
+        text-decoration: none;
+        color: $primary-text-color;
+        text-align: center;
+    }
+    &-name {
+        background-color: $modal-color;
+        min-width: 20rem;
+        margin: 1rem;
+        padding: 1rem;
+        border-radius: $border-radius;
+        text-decoration: none;
+        &:hover {
+            background-color: $button-and-hover-color;
+            color: white;
         }
     }
 }

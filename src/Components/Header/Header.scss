@@ -18,9 +18,7 @@
         animation: move-logo 2s ease-in-out forwards;
     }
     &__user {
-        opacity: 0;
-        animation: appear-user forwards;
-        animation-delay: 1.75s;
+        @include appear-animation;
     }
 }
 

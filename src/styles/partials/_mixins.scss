@@ -8,3 +8,41 @@
     justify-content: center;
     align-items: center;
 }
+
+@mixin appear-animation {
+    opacity: 0;
+    animation: appear-user forwards;
+    animation-delay: 1.75s;
+}
+
+@mixin flex-column($gap) {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+}
+
+@mixin field-button-styling {
+    width: 8.75rem;
+    height: 1.5625rem;
+    box-sizing: border-box;
+    border-radius: $border-radius;
+    padding: .25rem .5rem;
+    &:hover {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+    }
+}
+
+@mixin modal-form-styling {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1rem;
+    &--label {
+        width: 3.125rem;
+    }
+    &--field {
+        border: .0625rem solid $primary-text-color;
+        @include field-button-styling;
+    }
+}
