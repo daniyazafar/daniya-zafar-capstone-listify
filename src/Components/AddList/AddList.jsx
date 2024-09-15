@@ -1,10 +1,13 @@
 import './AddList.scss'
 import addIcon from '../../assets/icons/add.svg';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Api } from '../../../utils/utils.js';
 import AddListModal from './AddListModal/AddListModal';
 
 function AddList() {
+    const api = new Api();
+    const [ allLists, setAllLists ] = useState([]);
 
     const [ showModal, setShowModal ] = useState(false);
     const [ newList, setNewList ] = useState([])
@@ -16,6 +19,19 @@ function AddList() {
         setNewList(prevList => ([...prevList, new_list_name]));
     }
 
+    useEffect( () => {
+        const getAllLists = async () => {
+            try {
+                const lists = await api.getAllLists();
+                console.log(lists);
+                setAllLists(lists);
+            } catch (error) {
+                console.error(error)
+            }
+        };
+        getAllLists();
+    },[]);
+
     return (
         <>
         <div className='add'>
@@ -25,6 +41,11 @@ function AddList() {
             </div>
         </div>
         <AddListModal modal = {showModal} closeModal={closeModal} addNewList={handleAddNewList} />
+        <div className='added_list'>
+            {allLists.map((list, index) => (
+                <Link to='/listItem' key={index}><h2 className='added_list-name'>{list.name}</h2></Link>
+            ))}
+        </div>
         <div className='added_list'>
             {newList.map((list, index) => (
                 <Link to='/listItem' key={index}><h2 className='added_list-name'>{list}</h2></Link>
