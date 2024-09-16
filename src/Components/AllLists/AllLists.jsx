@@ -3,6 +3,8 @@ import addIcon from '../../assets/icons/add.svg';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Api } from '../../../utils/utils.js';
+
+import AddList from '../AddList/AddList.jsx'; 
 import AddListModal from '../AddList/AddListModal/AddListModal.jsx';
 
 function AllLists() {
@@ -34,12 +36,7 @@ function AllLists() {
 
     return (
         <>
-        <div className='add'>
-            <div className='add__click' onClick={handleOpenModal}>
-                <img className='add__icon' src={addIcon} alt="Add Icon" />
-                <p className='add__text'>Add a new list</p>
-            </div>
-        </div>
+        <AddList addNewList={handleAddNewList} /> 
         <AddListModal modal = {showModal} closeModal={closeModal} addNewList={handleAddNewList} />
         <div className='added_list'>
             {allLists.map((list, index) => (
