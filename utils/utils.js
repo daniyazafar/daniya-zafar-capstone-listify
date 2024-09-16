@@ -16,6 +16,15 @@ class Api {
         }
     }
 
+    async postNewList(newListData) {
+        try {
+            const response = await axios.post(`${url}/lists`, newListData);
+            return response.data;
+        } catch (error) {
+            console.log("Error while posting new list to the backend: ", error)
+        }
+    }
+
 }
 
 export { Api }

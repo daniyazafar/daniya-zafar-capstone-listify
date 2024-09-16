@@ -1,34 +1,44 @@
 import { useRef } from 'react';
+import { Api } from '../../../../utils/utils.js';
 
 import './AddListModal.scss';
 
 function AddListModal({ modal, closeModal, addNewList }) {
 
+    const api = new Api();
     const list_name = useRef();
     const list_type = useRef();
 
     if (!modal) return null;
 
-    const handleAddClick = (event) => {
-        closeModal();
-        // event.preventDefault();
+    const handleAddClick = async (event) => {
+        event.preventDefault();
         const new_list_name = list_name.current.value;
         const new_list_type = list_type.current.value;
 
         if (new_list_name.trim() && new_list_type) {
-            addNewList({
-                name: new_list_name,
-                type: new_list_type,
-            });
+            try {
+                const response = await api.postNewList({
+                    name: new_list_name,
+                    type: new_list_type
+                });
+                if (response) {
+                    addNewList(response);
+                    closeModal();
+                }
+            } catch (error) {
+                alert("Failed to add the new list. Please try again.");
+                console.error("Error posting new list:", error);
+            }
         } else {
             alert("Please enter a valid list name and select a type.");
         }
     };
 
-        return (
-            <>
+    return (
+        <>
             <div className='modal-overlay' onClick={closeModal}>
-                <form action="Submit" className='modal' onClick={(event) => event.stopPropagation()}>
+                <form className='modal' onClick={(event) => event.stopPropagation()}>
                     <h1 className='modal__title'>New List Details</h1>
                     <div className='modal__list'>
                         <div className='modal__list-name'>
@@ -45,11 +55,11 @@ function AddListModal({ modal, closeModal, addNewList }) {
                             </select>
                         </div>
                     </div>
-                    <p className='modal__add-button' onClick ={handleAddClick}>Add</p>
+                    <p className='modal__add-button' onClick={handleAddClick}>Add</p>
                 </form>
             </div>
-            </>
-        )
+        </>
+    );
 }
 
-export default AddListModal
+export default AddListModal;
