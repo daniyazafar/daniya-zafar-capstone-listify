@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'http://localhost:8080';
+const url = import.meta.env.VITE_API_URL;
 
 class Api {
     constructor () {
@@ -9,7 +9,7 @@ class Api {
 
     async getAllLists() {
         try {
-            const response = await axios.get(`${this.url}/`);
+            const response = await axios.get(`${this.url}/lists`);
             return response.data;
         } catch (error) {
             console.log("Error while fetching all lists from backend: ", error)

@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 import logo from '../../assets/icons/logo.png';
 import userIcon from '../../assets/icons/user.svg';
@@ -14,7 +14,7 @@ function Header() {
         <>
         <div className="header">
             <div className="empty"></div>
-            <img className='header__logo' src={logo} alt="Listify Logo" />
+            <Link to='/home' ><img className='header__logo' src={logo} alt="Listify Logo" /></Link>
             {!showUserIcon && <div className="empty"></div>}
             {showUserIcon && <img className='header__user' src={userIcon} alt="user account icon" />}
         </div>
