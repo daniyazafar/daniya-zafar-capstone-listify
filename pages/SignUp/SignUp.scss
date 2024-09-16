@@ -1,0 +1,30 @@
+@import '../../src/styles/partials/colors';
+@import '../../src//styles/partials/fonts';
+@import '../../src//styles/partials/media';
+@import '../../src//styles/partials/variables';
+@import '../../src//styles/partials/mixins';
+
+.sign-up {
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+    &__form {
+        @include card-styling;
+        &--title {
+            @include card-title;
+        }
+        &--fields {
+            @include flex-column(1rem);
+            &-email, &-password  {
+                @include modal-form-styling;
+                &--field {
+                    width: 15rem;
+                }
+            }
+        }
+    }
+    &__button {
+        @include button-styling;
+        @include field-button-styling;
+    }
+}

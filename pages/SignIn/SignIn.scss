@@ -1,0 +1,65 @@
+@import '../../src/styles/partials/colors';
+@import '../../src//styles/partials/fonts';
+@import '../../src//styles/partials/media';
+@import '../../src//styles/partials/variables';
+@import '../../src//styles/partials/mixins';
+
+.sign-in {
+    &__form {
+        @include card-styling;
+        &--title {
+            @include card-title;
+        }
+        &--fields {
+            @include flex-column(1rem);
+            &-email, &-password  {
+                @include modal-form-styling;
+                &--field {
+                    width: 15rem;
+                }
+            }
+        }
+    }
+    &__button {
+        @include button-styling;
+        @include field-button-styling;
+    }
+}
+
+.signin-signup {
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+    @include appear-animation;
+}
+
+.sign-up {
+    min-width: 20rem;
+    @include flex-column(15vh);
+    &__or {
+        @include flex-center;
+        margin: 1rem 0;
+    
+        &-divider {
+            @include flex-center;
+            width: 100%;
+            text-align: center;
+            position: relative;
+    
+            &::before, &::after {
+                content: '';
+                flex: 1;
+                border-bottom: 1px solid $primary-text-color;
+                margin: 0 1rem;
+            }
+        }
+    }
+    &__button {
+        @include button-styling;
+        @include field-button-styling;
+        & {
+            min-width: 68vw;
+            height: 2rem;
+        }
+    }
+}

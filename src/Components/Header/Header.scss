@@ -17,9 +17,6 @@
         transform: translateY(50vh) scale(1.5);
         animation: move-logo 2s ease-in-out forwards;
     }
-    &__user {
-        @include appear-animation;
-    }
 }
 
 @keyframes move-logo {

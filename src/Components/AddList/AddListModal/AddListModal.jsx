@@ -17,7 +17,7 @@ function AddListModal({ modal, closeModal, addNewList }) {
         return (
             <>
             <form action="" className='modal'>
-                <h1 className='modal__title'>Add New List</h1>
+                <h1 className='modal__title'>New List Details</h1>
                 <div className='modal__list'>
                     <div className='modal__list-name'>
                         <label className='modal__list-name--label' htmlFor="list_name">Name:</label>
