@@ -25,6 +25,16 @@ class Api {
         }
     }
 
+    async getListById(id) {
+        try {
+            const response = await axios.get(`${this.url}/lists/${id}`)
+            console.log(response.data);
+            return response.data;
+        } catch (error) {
+            console.error("Error while getting list by id")
+        }
+    }
+
 }
 
 export { Api }
