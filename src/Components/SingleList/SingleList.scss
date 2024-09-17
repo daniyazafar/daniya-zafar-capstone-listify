@@ -1,0 +1,40 @@
+@import '../../styles/partials/colors';
+@import '../../styles/partials/fonts';
+@import '../../styles/partials/media';
+@import '../../styles/partials/variables';
+@import '../../styles/partials/mixins';
+
+.list {
+    @include flex-column(1rem);
+    padding: 1rem;
+    &__header {
+        display: flex;
+        align-items: center;
+        border-bottom: .0625rem solid $primary-text-color;
+        padding-bottom: .5rem;
+        gap: 1rem;
+    }
+    &__area {
+        display: flex;
+        gap: 2rem;
+        &-field{
+            width: 100%;
+            height: 70vh;
+            border: .0625rem solid $faded-text-color;
+            padding-top: 2.5rem;
+            border-radius: 1rem;
+            background: linear-gradient(to top, transparent 95%, $faded-text-color);
+            & > * {
+                border-bottom: .0625rem solid $primary-text-color;
+                line-height: 2.5rem;
+                &:first-child {
+                    border-top: .0625rem solid $primary-text-color;
+                    line-height: 2.5rem;
+                }
+            }
+            &-tablet {
+                display: none;
+            }
+        }
+    }
+}
