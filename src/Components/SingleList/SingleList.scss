@@ -32,9 +32,14 @@
                     line-height: 2.5rem;
                 }
             }
-            &-tablet {
-                display: none;
-            }
+            // &-tablet {
+            //     display: none;
+            // }
         }
+    }
+    &__item {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
     }
 }
