@@ -51,6 +51,16 @@ class Api {
             console.error("Could not add items to the database", error);
         }
     }
+
+    async updateItemCheckmark(itemId, isChecked) {
+        try {
+            const response = await axios.patch(`${this.url}/items/${itemId}`, { isChecked });
+            return response.data;
+        } catch (error) {
+            console.error("Failed to update item checkmark", error);
+            throw error;
+        }
+    }
 }
 
 export { Api }
