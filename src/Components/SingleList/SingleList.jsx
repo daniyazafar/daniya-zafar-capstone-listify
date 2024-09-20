@@ -18,10 +18,10 @@ function SingleList() {
 
     const handleBackClick = async () => {
         try {
-            const items = item_ref.current.innerText.trim().split('\n');
-            await api.postItems(params.id, items);
+            const itemsText = item_ref.current.innerText.trim().split('\n');
+            await api.postItems(params.id, itemsText);
         } catch (error) {
-            console.error("Cannot post item to List:", error);
+            console.error("Cannot post items to List:", error);
         }
     };
 
@@ -54,6 +54,33 @@ function SingleList() {
         }
     };
 
+    const handleItemClickEvent = (e) => {
+        const itemId = e.target.getAttribute('data-item-id');
+        const clickedItem = items.find(item => item.id === parseInt(itemId));
+        if (clickedItem && e.target.classList.contains('item__checkmark')) {
+            const newIsChecked = !clickedItem.is_checked;
+            if (newIsChecked) {
+                e.target.classList.add('active');
+            } else {
+                e.target.classList.remove('active');
+            }
+            handleItemClick(clickedItem.id, clickedItem.is_checked);
+        }
+    };
+
+    const handleItemClick = async (itemId, currentIsChecked) => {
+        try {
+            const newIsChecked = !currentIsChecked;
+            await api.updateItemCheckmark(params.id, itemId, newIsChecked);
+    
+            setListItems(items.map(item =>
+                item.id === itemId ? { ...item, is_checked: newIsChecked } : item
+            ));
+        } catch (error) {
+            console.error("Cannot update item checkmark:", error);
+        }
+    };
+
     useEffect(() => {
         const getListDetails = async () => {
             try {
@@ -76,51 +103,35 @@ function SingleList() {
         if (item_ref.current) {
             item_ref.current.innerHTML = items.map(item =>
                 `<div class='item'>
-                    <img class='item__checkmark' src=${checkMark} alt="checkmark" />
-                    <p class ='item__name'>${item.item}</p>
+                    <img class='item__checkmark ${item.is_checked ? "active" : ""}' data-item-id="${item.id}" src=${item.is_checked ? darkCheckMark : checkMark} alt="checkmark" />
+                    <p class='item__name'>${item.item}</p>
                 </div>`
             ).join('');
-        
+            
             item_ref.current.addEventListener('keypress', handleEnterKey);
-    
-            const handleItemClick = (e) => {
-                if (e.target.classList.contains('item__checkmark')) {
-                    if (e.target.classList.contains('active')) {
-                        e.target.src = checkMark;
-                        e.target.classList.remove('active');
-                    } else {
-                        e.target.src = darkCheckMark;
-                        e.target.classList.add('active');
-                    }
-                }
-            };
-    
-            item_ref.current.addEventListener('click', handleItemClick);
-    
+            item_ref.current.addEventListener('click', handleItemClickEvent);
+
             return () => {
                 if (item_ref.current) {
                     item_ref.current.removeEventListener('keypress', handleEnterKey);
-                    item_ref.current.removeEventListener('click', handleItemClick);
+                    item_ref.current.removeEventListener('click', handleItemClickEvent);
                 }
             };
         }
     }, [items]);
-    
-    
+
     return (
-        <>
-            <div className="list">
-                <div className="list__header">
-                    <Link to='/home' onClick={handleBackClick}>
-                        <img src={backArrow} alt="back arrow" />
-                    </Link>
-                    <h1>{listDetails.name} - {listDetails.type}</h1>
-                </div>
-                <div className="list__area">
-                    <div ref={item_ref} className='list__area-field' contentEditable='true'></div>
-                </div>
+        <div className="list">
+            <div className="list__header">
+                <Link to='/home' onClick={handleBackClick}>
+                    <img src={backArrow} alt="back arrow" />
+                </Link>
+                <h1>{listDetails.name} - {listDetails.type}</h1>
             </div>
-        </>
+            <div className="list__area">
+                <div ref={item_ref} className='list__area-field' contentEditable='true'></div>
+            </div>
+        </div>
     );
 }
 

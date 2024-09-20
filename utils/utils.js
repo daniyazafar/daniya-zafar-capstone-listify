@@ -52,15 +52,18 @@ class Api {
         }
     }
 
-    async updateItemCheckmark(itemId, isChecked) {
+    async updateItemCheckmark(listId, itemId, isChecked) {
         try {
-            const response = await axios.patch(`${this.url}/items/${itemId}`, { isChecked });
+            const response = await axios.put(`${this.url}/lists/${listId}/items/${itemId}/checkmark`, {
+                is_checked: isChecked,
+            });
             return response.data;
         } catch (error) {
-            console.error("Failed to update item checkmark", error);
+            console.error("Error updating checkmark: ", error);
             throw error;
         }
     }
+    
 }
 
 export { Api }

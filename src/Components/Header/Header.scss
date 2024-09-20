@@ -6,16 +6,23 @@
 
 .header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    .empty {
-        width: 1rem;
+    &__empty {
+        margin: auto;
     }
     &__logo {
+        margin: auto;
         width: 4rem;
         height: 3.28rem;
         transform: translateY(50vh) scale(1.5);
         animation: move-logo 2s ease-in-out forwards;
+    }
+    &__logo--no-animation {
+        padding-left: 3rem;
+        width: 4rem;
+        height: 3.28rem;
     }
 }
 
