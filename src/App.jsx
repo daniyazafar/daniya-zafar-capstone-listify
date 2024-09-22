@@ -19,8 +19,8 @@ function App() {
     <Routes>
       <Route path="/" element={<SignIn />} />
       <Route path="/signup" element={<SignUp />} />
-      <Route path="/home" element={<AllLists />} />
-      <Route path="/list/:id" element={<SingleList />} />
+      <Route path="/lists" element={<AllLists />} />
+      <Route path="/lists/:id" element={<SingleList />} />
       <Route path="/lists/:id/organized" element={<OrganizedList />} />
     </Routes>
     </BrowserRouter>

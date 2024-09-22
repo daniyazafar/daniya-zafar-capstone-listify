@@ -4,7 +4,6 @@
 @import '../../../styles/partials/variables';
 @import '../../../styles/partials/mixins';
 
-
 .list__header {
     &--icon {
         &:hover {
@@ -14,7 +13,7 @@
 }
 
 .organized__list {
-    padding: 1rem;
+    padding: 1rem 5rem;
     &-item {
         display: flex;
         align-items: center;

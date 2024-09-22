@@ -31,7 +31,7 @@ function ListTitle({ listDetails, handleBackClick }) {
 
     return (
         <div className="list__header">
-            <Link to='/home' onClick={handleBackClick}>
+            <Link to='/lists' onClick={handleBackClick}>
                 <img src={backArrow} alt="back arrow" />
             </Link>
             <h1>{listDetails.name} - {listDetails.type}</h1>

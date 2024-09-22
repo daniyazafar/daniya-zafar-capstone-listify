@@ -5,32 +5,41 @@
 @import '../../styles/partials/mixins';
 
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: center; 
+    @include flex-center;
+    justify-content: center;
     padding: 1rem;
-
-    &__empty {
-        margin: auto;
+    
+    &__menu {
+        position: absolute;
+        left: 1rem;
+        &:hover {
+            cursor: pointer;
+        }
     }
-
+    
     &__logo {
-        margin: auto;
-        width: 4rem;
-        height: 3.28rem;
+        @include logo-size;
         transform: translateY(50vh) scale(1.5);
         animation: move-logo 2s ease-in-out forwards;
     }
-
+    
     &__logo--no-animation {
-        width: 4rem;
-        height: 3.28rem;
+        @include logo-size;
     }
-
+    
+    &__user-icon {
+        position: absolute;
+        right: 1rem;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    
     &--no-animation {
-        justify-content: space-between;
+        justify-content: center;
     }
 }
+
 
 @keyframes move-logo {
     to {

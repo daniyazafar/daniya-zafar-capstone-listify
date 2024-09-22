@@ -6,7 +6,7 @@ function SignUp () {
     const navigate = useNavigate();
 
     const handleSignInClick = () => {
-        navigate('/home');
+        navigate('/lists');
     }
 
     return (

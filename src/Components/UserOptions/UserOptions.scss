@@ -1,0 +1,30 @@
+@import '../../styles/partials/colors';
+@import '../../styles/partials/fonts';
+@import '../../styles/partials/media';
+@import '../../styles/partials/variables';
+@import '../../styles/partials/mixins';
+
+.options {
+    &__item {
+        background-color: $modal-color;
+        border-radius: .5rem;
+        z-index: 1000;
+        position: sticky;
+        top: 6.25rem;
+        right: 1rem;
+        left: 1rem;
+        width: calc(100% - 2rem);
+        transform: translateY(0);
+        transition: transform 0.3s ease;
+        opacity: 1;
+    }
+    &__list {
+        @include options-styling__list;
+        &--item {
+            @include options-styling--item;
+        }
+    }
+    &__link {
+        @include options-styling__link;
+    }
+}

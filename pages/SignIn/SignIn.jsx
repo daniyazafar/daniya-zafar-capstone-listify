@@ -5,7 +5,7 @@ function SignIn () {
     const navigate = useNavigate();
 
     const handleSignInClick = () => {
-        navigate('/home');
+        navigate('/lists');
     }
 
     const handleSignUpClick = () => {

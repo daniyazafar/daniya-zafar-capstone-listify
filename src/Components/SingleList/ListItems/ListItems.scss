@@ -1,0 +1,42 @@
+@import '../../../styles/partials/colors';
+@import '../../../styles/partials/fonts';
+@import '../../../styles/partials/media';
+@import '../../../styles/partials/variables';
+@import '../../../styles/partials/mixins';
+
+.list {
+    &__area {
+        &-field{
+            width: 100%;
+            padding: 2.5rem 1rem 1rem 1rem;
+            border-radius: 1rem;
+            background: linear-gradient(to top, transparent 95%, $faded-text-color);
+            & > * {
+                border-bottom: .0625rem solid $primary-text-color;
+                &:first-child {
+                    border-top: .0625rem solid $primary-text-color;
+                }
+            }
+        }
+    }
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    &__checkmark{
+        opacity: 30%;
+        width: .8125rem;
+        height: .8125rem;
+        padding: 1.25rem 1rem 1.25rem 1rem;
+        transition: opacity 0.3s ease;
+        &:hover {
+            opacity: 100%;
+            cursor: pointer;
+        }
+        &.active {
+            opacity: 100%;
+        }
+    }
+}

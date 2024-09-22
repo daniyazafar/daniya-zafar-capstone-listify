@@ -26,6 +26,11 @@
     align-items: center;
 }
 
+@mixin logo-size {
+    width: 4rem;
+    height: 3.28rem;
+}
+
 @mixin button-styling {
     background-color: $button-and-hover-color;
     color: white;
@@ -86,4 +91,32 @@
         background-color: $button-and-hover-color;
         color: white;
     }
+}
+
+@mixin options-styling__item {
+    background-color: $modal-color;
+    border-radius: .5rem;
+    z-index: 1000;
+    position: sticky;
+    top: 6.25rem;
+    left: 1rem;
+    width: calc(100% - 2rem);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+    opacity: 1;
+}
+
+@mixin options-styling__list {
+    padding: 1rem;
+    @include flex-column(2rem);
+    list-style-type: none;
+}
+
+@mixin options-styling--item {
+    padding: 0.5rem;
+}
+
+@mixin options-styling__link {
+    color: $primary-text-color;
+    text-decoration: none;
 }

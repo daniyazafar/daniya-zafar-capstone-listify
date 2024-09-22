@@ -12,7 +12,7 @@ function ListItems({ items, handleEnterKey, handleItemClickEvent, item_ref }) {
                         data-item-id="${item.id}" 
                         src=${item.is_checked ? darkCheckMark : checkMark} 
                         alt="checkmark" />
-                    <p class='item__name'>${item.item}</p>
+                    <p>${item.item}</p>
                 </div>`
             ).join('');
 

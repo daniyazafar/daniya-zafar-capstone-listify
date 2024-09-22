@@ -39,7 +39,7 @@ function AllLists() {
                 {allLists
                     .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
                     .map((list, index) => (
-                    <Link to={`/list/${list.id}`} key={index}>
+                    <Link to={`/lists/${list.id}`} key={index}>
                         <h2 className='added_list-name'>{list.name} - {list.type}</h2>
                     </Link>
                 ))}

@@ -39,7 +39,6 @@ function SingleList() {
             imgElement.alt = 'checkmark';
 
             const textElement = document.createElement('p');
-            textElement.classList.add('item__name');
             textElement.contentEditable = 'true';
 
             newItemDiv.appendChild(imgElement);

@@ -1,0 +1,12 @@
+@import '../../../styles/partials/colors';
+@import '../../../styles/partials/fonts';
+@import '../../../styles/partials/media';
+@import '../../../styles/partials/variables';
+@import '../../../styles/partials/mixins';
+
+.list {
+    &__area {
+        display: flex;
+        gap: 2rem;
+    }
+}
