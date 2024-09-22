@@ -1,0 +1,30 @@
+@import '../../../src/styles/partials/colors';
+@import '../../../src/styles/partials/fonts';
+@import '../../../src/styles/partials/media';
+@import '../../../src/styles/partials/variables';
+@import '../../../src/styles/partials/mixins';
+
+.delete-modal-overlay {
+    @include modal-overlay;
+}
+
+.delete-modal {
+    @include card-styling;
+    width: 18.75rem;
+    text-align: center;
+    padding: 2rem;
+    &__title {
+        @include card-title;
+    }
+    &__message {
+        margin-bottom: 2rem;
+    }
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__button {
+        @include button-styling;
+        @include field-button-styling;
+    }
+}

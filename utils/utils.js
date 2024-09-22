@@ -34,6 +34,15 @@ class Api {
         }
     }
 
+    async deleteListById(id) {
+        try {
+            const response = await axios.delete(`${this.url}/lists/${id}`);
+            return response.data;
+        } catch (error) {
+            console.error("Error while deleting list by id");
+        }
+    }
+
     async postItems(id, items) {
         try {
             const response = await axios.post(`${this.url}/lists/${id}/items`, {items});

@@ -12,5 +12,24 @@
     }
     &-name {
         @include add-mixin;
+        & {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            & > * {
+                text-decoration: none;
+            }
+            h2 {
+                color: $primary-text-color;
+            }
+        }
+    }
+    &-delete {
+        position: absolute;
+        right: 2rem;
+        &:hover {
+            cursor: pointer;
+        }
     }
 }

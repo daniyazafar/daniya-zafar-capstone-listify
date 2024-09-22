@@ -1,0 +1,11 @@
+@import '../../../src/styles/partials/colors';
+@import '../../../src/styles/partials/fonts';
+@import '../../../src/styles/partials/media';
+@import '../../../src/styles/partials/variables';
+@import '../../../src/styles/partials/mixins';
+
+.footer{
+    display: flex;
+    justify-content: center;
+    color: $primary-text-color;
+}

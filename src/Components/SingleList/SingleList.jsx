@@ -26,6 +26,24 @@ function SingleList() {
         }
     };
 
+    const addInitialCheckmarkAndLine = () => {
+        const newItemDiv = document.createElement('div');
+        newItemDiv.classList.add('item');
+
+        const imgElement = document.createElement('img');
+        imgElement.classList.add('item__checkmark');
+        imgElement.src = checkMark;
+        imgElement.alt = 'checkmark';
+
+        const textElement = document.createElement('p');
+        textElement.contentEditable = 'true';
+        textElement.textContent = '';
+
+        newItemDiv.appendChild(imgElement);
+        newItemDiv.appendChild(textElement);
+        item_ref.current.appendChild(newItemDiv);
+    };
+
     const handleEnterKey = (event) => {
         if (event.key === 'Enter') {
             event.preventDefault();
@@ -98,6 +116,12 @@ function SingleList() {
         };
         getListDetails();
     }, [params.id]);
+
+    useEffect(() => {
+        if (item_ref.current && items.length === 0) {
+            addInitialCheckmarkAndLine();
+        }
+    }, [items]);
 
     return (
         <div className="list">
