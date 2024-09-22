@@ -1,0 +1,37 @@
+@import '../../../styles/partials/colors';
+@import '../../../styles/partials/fonts';
+@import '../../../styles/partials/media';
+@import '../../../styles/partials/variables';
+@import '../../../styles/partials/mixins';
+
+
+.list__header {
+    &--icon {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.organized__list {
+    padding: 1rem;
+    &-item {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        margin-bottom: .5rem;
+        opacity: 0.5;
+        transition: opacity 0.3s ease-in-out;
+        &:hover {
+            cursor: pointer;
+        }
+        &.active {
+            opacity: 1;
+        }
+    }
+    &-checkmark {
+        margin-right: .5rem;
+        width: 1rem;
+        height: 1rem;
+    }
+}

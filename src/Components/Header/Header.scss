@@ -7,11 +7,13 @@
 .header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center; 
     padding: 1rem;
+
     &__empty {
         margin: auto;
     }
+
     &__logo {
         margin: auto;
         width: 4rem;
@@ -19,10 +21,14 @@
         transform: translateY(50vh) scale(1.5);
         animation: move-logo 2s ease-in-out forwards;
     }
+
     &__logo--no-animation {
-        padding-left: 3rem;
         width: 4rem;
         height: 3.28rem;
+    }
+
+    &--no-animation {
+        justify-content: space-between;
     }
 }
 
@@ -33,5 +39,7 @@
 }
 
 @keyframes appear-user {
-    100% {opacity: 1;}
+    100% {
+        opacity: 1;
+    }
 }

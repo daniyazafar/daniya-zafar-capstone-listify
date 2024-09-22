@@ -7,19 +7,12 @@
 .list {
     @include flex-column(1rem);
     padding: 1rem;
-    &__header {
-        display: flex;
-        align-items: center;
-        border-bottom: .0625rem solid $primary-text-color;
-        padding-bottom: .5rem;
-        gap: 1rem;
-    }
+    
     &__area {
         display: flex;
         gap: 2rem;
         &-field{
             width: 100%;
-            height: 70vh;
             padding: 2.5rem 1rem 1rem 1rem;
             border-radius: 1rem;
             background: linear-gradient(to top, transparent 95%, $faded-text-color);

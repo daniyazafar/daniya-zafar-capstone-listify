@@ -1,10 +1,11 @@
-import { useParams, Link } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
+import { useParams } from "react-router-dom";
 import { Api } from "../../../utils/utils.js";
 
-import backArrow from "../../../src/assets/icons/back.svg";
 import checkMark from "../../../src/assets/icons/checkmark.svg";
-import darkCheckMark from "../../../src/assets/icons/dark-checkmark.svg";
+
+import ListTitle from './ListTitle/ListTitle';
+import ListArea from './ListArea/ListArea';
 
 import './SingleList.scss';
 
@@ -25,9 +26,9 @@ function SingleList() {
         }
     };
 
-    const handleEnterKey = (e) => {
-        if (e.key === 'Enter') {
-            e.preventDefault();
+    const handleEnterKey = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
 
             const newItemDiv = document.createElement('div');
             newItemDiv.classList.add('item');
@@ -99,38 +100,15 @@ function SingleList() {
         getListDetails();
     }, [params.id]);
 
-    useEffect(() => {
-        if (item_ref.current) {
-            item_ref.current.innerHTML = items.map(item =>
-                `<div class='item'>
-                    <img class='item__checkmark ${item.is_checked ? "active" : ""}' data-item-id="${item.id}" src=${item.is_checked ? darkCheckMark : checkMark} alt="checkmark" />
-                    <p class='item__name'>${item.item}</p>
-                </div>`
-            ).join('');
-            
-            item_ref.current.addEventListener('keypress', handleEnterKey);
-            item_ref.current.addEventListener('click', handleItemClickEvent);
-
-            return () => {
-                if (item_ref.current) {
-                    item_ref.current.removeEventListener('keypress', handleEnterKey);
-                    item_ref.current.removeEventListener('click', handleItemClickEvent);
-                }
-            };
-        }
-    }, [items]);
-
     return (
         <div className="list">
-            <div className="list__header">
-                <Link to='/home' onClick={handleBackClick}>
-                    <img src={backArrow} alt="back arrow" />
-                </Link>
-                <h1>{listDetails.name} - {listDetails.type}</h1>
-            </div>
-            <div className="list__area">
-                <div ref={item_ref} className='list__area-field' contentEditable='true'></div>
-            </div>
+            <ListTitle listDetails={listDetails} handleBackClick={handleBackClick} />
+            <ListArea 
+                items={items} 
+                handleEnterKey={handleEnterKey}
+                handleItemClickEvent={handleItemClickEvent}
+                item_ref={item_ref} 
+            />
         </div>
     );
 }

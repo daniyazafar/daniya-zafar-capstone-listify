@@ -7,6 +7,7 @@ import SignUp from "../pages/SignUp/Signup";
 import SingleList from "./Components/SingleList/SingleList";
 
 import './App.scss';
+import OrganizedList from "./Components/SingleList/OrganizedList/OrganizedList";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
       <Route path="/signup" element={<SignUp />} />
       <Route path="/home" element={<AllLists />} />
       <Route path="/list/:id" element={<SingleList />} />
+      <Route path="/lists/:id/organized" element={<OrganizedList />} />
     </Routes>
     </BrowserRouter>
     </>

@@ -63,6 +63,15 @@ class Api {
             throw error;
         }
     }
+
+    async organizeList (listId) {
+        try {
+            const response = await axios.get(`${this.url}/lists/${listId}/items/categorized`);
+            return response.data;
+        } catch (error) {
+            console.log("Cannot categorize list items", error);
+        }
+    }
     
 }
 
