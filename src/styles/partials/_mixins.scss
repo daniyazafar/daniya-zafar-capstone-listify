@@ -93,19 +93,6 @@
     }
 }
 
-@mixin options-styling__item {
-    background-color: $modal-color;
-    border-radius: .5rem;
-    z-index: 1000;
-    position: sticky;
-    top: 6.25rem;
-    left: 1rem;
-    width: calc(100% - 2rem);
-    transform: translateY(0);
-    transition: transform 0.3s ease;
-    opacity: 1;
-}
-
 @mixin options-styling__list {
     padding: 1rem;
     @include flex-column(2rem);

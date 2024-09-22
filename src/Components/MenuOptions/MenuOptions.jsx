@@ -24,15 +24,8 @@ function MenuOptions({ onLinkClick }) {
             <div className='menu-options__item'>
                 <ul className="menu-options__list">
                     {allLists.map((list, index) => (
-                        <Link 
-                            to={`/lists/${list.id}`} 
-                            key={index} 
-                            className="menu-options__link" 
-                            onClick={onLinkClick}
-                        >
-                            <li className="menu-options__list--item">
-                                {list.name} - {list.type}
-                            </li>
+                        <Link to={`/lists/${list.id}`} key={index} className="menu-options__link" onClick={onLinkClick}>
+                            <li className="menu-options__list--item"> {list.name} - {list.type}</li>
                         </Link>
                     ))}
                 </ul>

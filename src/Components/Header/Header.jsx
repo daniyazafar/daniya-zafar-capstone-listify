@@ -44,7 +44,6 @@ function Header() {
             const menuModal = document.querySelector('.menu-options');
             const userIcon = document.querySelector('.header__user-icon');
             const menuIconEl = document.querySelector('.header__menu');
-
             if (
                 (userModal && !userModal.contains(event.target) && !userIcon.contains(event.target)) ||
                 (menuModal && !menuModal.contains(event.target) && !menuIconEl.contains(event.target))
@@ -53,11 +52,9 @@ function Header() {
                 setShowMenuOptions(false);
             }
         };
-
         if (showUserOptions || showMenuOptions) {
             window.addEventListener('click', handleClickOutside);
         }
-
         return () => {
             window.removeEventListener('click', handleClickOutside);
         };
@@ -81,7 +78,6 @@ function Header() {
                 )}
             </div>
 
-            {/* Place the modals outside the header to maintain sticky behavior */}
             {showUserOptions && <UserOptions onLinkClick={handleUserIconLinkClick} />}
             {showMenuOptions && <MenuOptions onLinkClick={handleMenuLinkClick} />}
         </>
