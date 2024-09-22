@@ -2,7 +2,6 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Api } from "../../../../utils/utils.js";
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import backArrow from "../../../../src/assets/icons/back.svg";
 import calendarIcon from "../../../../src/assets/icons/calendar.svg";
 import './ListTitle.scss';
