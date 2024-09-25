@@ -14,6 +14,7 @@ function OrganizedList() {
     const navigate = useNavigate();
     const { categorizedItems = [], listDetails = {} } = location.state || {};
     const [organizedList, setOrganizedList] = useState([]);
+    const [isRefreshing, setIsRefreshing] = useState(false);
 
     const toggleCheckmark = (categoryIndex, itemIndex, wordIndex) => {
         const updatedList = [...organizedList];
@@ -32,6 +33,7 @@ function OrganizedList() {
 
     const handleRefresh = async () => {
         try {
+            setIsRefreshing(true);
             const response = await api.organizeList(params.id);
             const newCategorizedItems = Object.entries(response).map(([key, value]) => {
                 return {
@@ -45,7 +47,9 @@ function OrganizedList() {
                 };
             });
             setOrganizedList(newCategorizedItems);
+            setIsRefreshing(false);
         } catch (error) {
+            setIsRefreshing(false);
             console.error("Failed to refresh list", error);
         }
     };
@@ -105,6 +109,14 @@ function OrganizedList() {
                     <p>No items to display</p>
                 )}
             </div>
+
+            {isRefreshing && (
+                <div className="sparkle-overlay">
+                    {[...Array(150)].map((_, index) => (
+                        <div key={index} className={`sparkle sparkle-${index + 1}`}></div>
+                    ))}
+                </div>
+            )}
         </div>
     );
 }

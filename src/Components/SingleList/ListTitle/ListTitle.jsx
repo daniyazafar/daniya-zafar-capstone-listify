@@ -10,12 +10,14 @@ function ListTitle({ listDetails, handleBackClick }) {
     const api = new Api();
     const params = useParams();
     const navigate = useNavigate();
-    
+
     const [showCalendar, setShowCalendar] = useState(false);
     const [selectedDate, setSelectedDate] = useState(new Date());
+    const [isOrganizing, setIsOrganizing] = useState(false);
 
     const handleOrganizeClick = async () => {
         try {
+            setIsOrganizing(true);
             await handleBackClick();
             const response = await api.organizeList(params.id);
             const categorizedItems = Object.entries(response).map(([key, value]) => {
@@ -29,8 +31,10 @@ function ListTitle({ listDetails, handleBackClick }) {
                     })
                 };
             });
+            setIsOrganizing(false);
             navigate(`/lists/${params.id}/organized`, { state: { categorizedItems, listDetails } });
         } catch (error) {
+            setIsOrganizing(false);
             console.error('Failed to organize list:', error);
         }
     };
@@ -39,44 +43,40 @@ function ListTitle({ listDetails, handleBackClick }) {
         setShowCalendar(!showCalendar);
     };
 
-    const handleDateChange = (date) => {
-        setSelectedDate(date);
-        setShowCalendar(false);
-    };
-
     return (
-        <div className="list__header">
-            <Link to='/lists' onClick={handleBackClick}>
-                <img src={backArrow} alt="back arrow" />
-            </Link>
-            <h1>{listDetails.name} - {listDetails.type}</h1>
-            
-            {listDetails.type === 'Grocery' && (
-                <div className='list__header-button' onClick={handleOrganizeClick}>
-                    Organize
-                </div>
-            )}
+        <>
+            <div className="list__header">
+                <Link to='/lists' onClick={handleBackClick}>
+                    <img src={backArrow} alt="back arrow" />
+                </Link>
+                <h1>{listDetails.name} - {listDetails.type}</h1>
+                
+                {listDetails.type === 'Grocery' && (
+                    <div className='list__header-button' onClick={handleOrganizeClick}>
+                        Organize
+                    </div>
+                )}
 
-            {listDetails.type === 'Routine' && (
-                <div className='list__header-calendar'>
-                    <img 
-                        src={calendarIcon} 
-                        alt="Calendar icon" 
-                        onClick={toggleCalendar} 
-                        style={{ cursor: 'pointer', width: '50px', height: '50px' }} 
-                    />
-                    {showCalendar && (
-                        <div className="calendar-popup">
-                            <DatePicker
-                                selected={selectedDate}
-                                onChange={handleDateChange}
-                                inline
-                            />
-                        </div>
-                    )}
+                {listDetails.type === 'Routine' && (
+                    <div className='list__header-calendar'>
+                        <img 
+                            src={calendarIcon} 
+                            alt="Calendar icon" 
+                            onClick={toggleCalendar} 
+                            style={{ cursor: 'pointer', width: '3.125rem', height: '3.125rem' }} 
+                        />
+                    </div>
+                )}
+            </div>
+
+            {isOrganizing && (
+                <div className="sparkle-overlay">
+                    {[...Array(50)].map((_, index) => (
+                        <div key={index} className={`sparkle sparkle-${index + 1}`}></div>
+                    ))}
                 </div>
             )}
-        </div>
+        </>
     );
 }
 
