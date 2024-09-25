@@ -29,29 +29,61 @@
 .signin-signup {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 10vh;
     @include appear-animation;
+    @include tablet {
+        flex-direction: row-reverse;
+    }
+    @include desktop {
+        margin: 25vh 0;
+    }
 }
 
 .sign-up {
     min-width: 20rem;
     @include flex-column(15vh);
+    @include tablet {
+        min-width: 10rem;
+    }
     &__or {
         @include flex-center;
         margin: 1rem 0;
-    
+        &-tablet{
+            display: none;
+            @include tablet {
+                display: flex;
+                @include flex-center;
+            }
+        }
         &-divider {
             @include flex-center;
             width: 100%;
             text-align: center;
             position: relative;
-    
             &::before, &::after {
                 content: '';
                 flex: 1;
                 border-bottom: 1px solid $primary-text-color;
                 margin: 0 1rem;
             }
+            &-tablet {
+                display: none;
+                @include tablet {
+                    @include flex-center;
+                    flex-direction: column;
+                    position: relative;
+                    &::before, &::after {
+                        content: '';
+                        width: .0625rem;
+                        height: 6.125rem;
+                        background-color: $primary-text-color;
+                    }
+                }
+            }
+        }
+        @include tablet {
+            display: none;
         }
     }
     &__button {
@@ -60,6 +92,9 @@
         & {
             min-width: 68vw;
             height: 2rem;
+        }
+        @include tablet {
+            min-width: 20vw;
         }
     }
 }

@@ -26,5 +26,7 @@
     &__button {
         @include button-styling;
         @include field-button-styling;
+        border: none;
+        margin: .5rem;
     }
 }

@@ -1,0 +1,61 @@
+@import '../../styles/partials/colors';
+@import '../../styles/partials/fonts';
+@import '../../styles/partials/media';
+@import '../../styles/partials/variables';
+@import '../../styles/partials/mixins';
+
+.custom-datepicker-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $modal-color;
+    border-radius: .5rem;
+    padding: 2rem;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.react-datepicker {
+    border: none;
+    background-color: $modal-color;
+    font-family: $primary-font;
+    border-radius: .5rem;
+    padding: 1rem;
+    box-shadow: none;
+}
+
+.react-datepicker__header {
+    background-color: $primary-color;
+    border-bottom: none;
+}
+
+.react-datepicker__day-name, 
+.react-datepicker__day, 
+.react-datepicker__time-name {
+    color: $primary-text-color;
+}
+
+.react-datepicker__current-month {
+    font-size: 1.2rem;
+    color: $primary-color;
+}
+
+.react-datepicker__navigation--previous {
+    border-right-color: $primary-color;
+}
+
+.react-datepicker__navigation--next {
+    border-left-color: $primary-color;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 999;
+}

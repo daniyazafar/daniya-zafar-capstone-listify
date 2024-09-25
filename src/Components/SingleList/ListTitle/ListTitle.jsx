@@ -16,6 +16,7 @@ function ListTitle({ listDetails, handleBackClick }) {
 
     const handleOrganizeClick = async () => {
         try {
+            await handleBackClick();
             const response = await api.organizeList(params.id);
             const categorizedItems = Object.entries(response).map(([key, value]) => {
                 return {
@@ -28,7 +29,6 @@ function ListTitle({ listDetails, handleBackClick }) {
                     })
                 };
             });
-    
             navigate(`/lists/${params.id}/organized`, { state: { categorizedItems, listDetails } });
         } catch (error) {
             console.error('Failed to organize list:', error);
@@ -41,7 +41,7 @@ function ListTitle({ listDetails, handleBackClick }) {
 
     const handleDateChange = (date) => {
         setSelectedDate(date);
-        setShowCalendar(false); // Close calendar after selecting a date
+        setShowCalendar(false);
     };
 
     return (
